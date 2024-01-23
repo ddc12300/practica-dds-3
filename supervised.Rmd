@@ -10,13 +10,46 @@ output: html_document
 Para realizar esta práctica disponemos de una muestra de tráfico de red en un fichero csv. Si importamos el fichero csv como un dataframe con la función dim() podemos ver que disponemos de 10000 muestras de tráfico de red con 49 categorias cada una.
 Las categorias de las muestras son: srcip, sport, dstip, dsport, proto, state, dur, sbytes, dbytes, sttl, dttl, sloss, dloss, service, Sload, Dloa, Sjit, Djit, Stime, Ltime, Sintpkt, Dintpkt, tcprtt, synack, ackdat, is_sm_ips_ports, ct_state_ttl, ct_flw_http_mthd, is_ftp_login, ct_ftp_cmd, ct_srv_src, ct_srv_dst, ct_dst_ltm, ct_src_ltm, ct_src_dport_ltm, ct_dst_sport_ltm, ct_dst_src_ltm, attack_cat, Label.
 
-La categoria srcip es de tipo character
-La categoria sport es de tipo numeric
-La categoria dstip es de tipo character
-La categoria dsport es de tipo numeric
-La categoria proto es de tipo character
-La categoria state es de tipo character
-La categoria dur es de tipo numeric
+
+La categoría srcip es de tipo character.
+La categoría sport es de tipo numeric.
+La categoría dstip es de tipo character.
+La categoría dsport es de tipo numeric.
+La categoría proto es de tipo character.
+La categoría state es de tipo character.
+La categoría dur es de tipo numeric.
+La categoría sbytes es de tipo numeric.
+La categoría dbytes es de tipo numeric.
+La categoría sttl es de tipo numeric.
+La categoría dttl es de tipo numeric.
+La categoría sloss es de tipo numeric.
+La categoría dloss es de tipo numeric.
+La categoría service es de tipo character.
+La categoría Sload es de tipo numeric.
+La categoría Dload es de tipo numeric.
+La categoría Sjit es de tipo numeric.
+La categoría Djit es de tipo numeric.
+La categoría Stime es de tipo numeric.
+La categoría Ltime es de tipo numeric.
+La categoría Sintpkt es de tipo numeric.
+La categoría Dintpkt es de tipo numeric.
+La categoría tcprtt es de tipo numeric.
+La categoría synack es de tipo numeric.
+La categoría ackdat es de tipo numeric.
+La categoría is_sm_ips_ports es de tipo numeric.
+La categoría ct_state_ttl es de tipo numeric.
+La categoría ct_flw_http_mthd es de tipo numeric.
+La categoría is_ftp_login es de tipo numeric.
+La categoría ct_ftp_cmd es de tipo numeric.
+La categoría ct_srv_src es de tipo numeric.
+La categoría ct_srv_dst es de tipo numeric.
+La categoría ct_dst_ltm es de tipo numeric.
+La categoría ct_src_ltm es de tipo numeric.
+La categoría ct_src_dport_ltm es de tipo numeric.
+La categoría ct_dst_sport_ltm es de tipo numeric.
+La categoría ct_dst_src_ltm es de tipo numeric.
+La categoría attack_cat es de tipo character.
+La categoría Label es de tipo numeric.
 
 
 ## Generación del modelo de ML
