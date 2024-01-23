@@ -7,7 +7,16 @@ output: html_document
 ## Exploración de datos
 ####1. Exploración de los datos de tráfico de red disponibles
 
+Para realizar esta práctica disponemos de una muestra de tráfico de red en un fichero csv. Si importamos el fichero csv como un dataframe con la función dim() podemos ver que disponemos de 10000 muestras de tráfico de red con 49 categorias cada una.
+Las categorias de las muestras son: srcip, sport, dstip, dsport, proto, state, dur, sbytes, dbytes, sttl, dttl, sloss, dloss, service, Sload, Dloa, Sjit, Djit, Stime, Ltime, Sintpkt, Dintpkt, tcprtt, synack, ackdat, is_sm_ips_ports, ct_state_ttl, ct_flw_http_mthd, is_ftp_login, ct_ftp_cmd, ct_srv_src, ct_srv_dst, ct_dst_ltm, ct_src_ltm, ct_src_dport_ltm, ct_dst_sport_ltm, ct_dst_src_ltm, attack_cat, Label.
 
+La categoria srcip es de tipo character
+La categoria sport es de tipo numeric
+La categoria dstip es de tipo character
+La categoria dsport es de tipo numeric
+La categoria proto es de tipo character
+La categoria state es de tipo character
+La categoria dur es de tipo numeric
 
 
 ## Generación del modelo de ML
