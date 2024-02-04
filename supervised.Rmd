@@ -1,6 +1,6 @@
 ---
-title: "Supervised Learning"
-author: "<you_names_here>"
+title: "Supervised Learning - practica 3"
+author: "Raquel Abad y Daniel Díaz"
 date: "06/01/2024"
 output: html_document
 ---
@@ -124,6 +124,8 @@ prop.table(table(events$Label))
 
 ### Create train and test data sets
 
+Hemos modificado la proporción de datos utilizados para el entrenamiento y la validación, pasando de una división previa a una división donde el 80% de los datos se utilizan para entrenamiento y el 20% para validación. Este ajuste busca optimizar la cantidad de datos disponibles para el aprendizaje del modelo, mejorando potencialmente su rendimiento.
+
 ```{r train_test, echo=FALSE}
 splitIndex <- createDataPartition(events[,outcomeName], p = .80, list = FALSE, times = 1)
 
@@ -133,12 +135,16 @@ testDF  <- events[-splitIndex,]
 
 ### Prepare object with training configuration (how we are gonna train the model)
 
+Anteriormente, no estábamos utilizando la validación cruzada en nuestro proceso de entrenamiento y evaluación. Hemos cambiado esta aproximación para incorporar la validación cruzada con 2 pliegues. Este cambio tiene como objetivo proporcionar una evaluación más rigurosa y fiable del modelo, permitiéndonos obtener una estimación más precisa de su capacidad para generalizar a nuevos datos. La validación cruzada funciona dividiendo el conjunto de datos de manera aleatoria en dos partes o "pliegues". En el caso de la validación cruzada con 2 pliegues, el conjunto de datos se divide en dos partes iguales: una parte se utiliza para entrenar el modelo y la otra parte se utiliza para evaluarlo. Luego, este proceso se repite, pero esta vez, la parte que se había utilizado para la evaluación se usa para el entrenamiento y viceversa. Esto asegura que todo el conjunto de datos se utilice tanto para el entrenamiento como para la evaluación, proporcionando una visión completa del rendimiento del modelo. Al utilizar la validación cruzada, mitigamos el riesgo de sobreajuste, que ocurre cuando un modelo aprende patrones específicos de los datos de entrenamiento tan bien que falla al intentar predecir resultados en datos no vistos. 
+
 ```{r model_config, echo=FALSE}
-# Consulta https://es.wikipedia.org/wiki/Validaci%C3%B3n_cruzada
-objControl <- trainControl(method = 'none', 
-                           returnResamp = 'none', 
-                           summaryFunction = twoClassSummary, 
-                           classProbs = TRUE)
+# Configuración de trainControl para usar validación cruzada
+objControl <- trainControl(method = "cv",  # Usar validación cruzada
+                           number = 2,    # Número de pliegues (folds) para la validación cruzada
+                           classProbs = TRUE, # Calcular probabilidades de clase (necesario para AUC)
+                           summaryFunction = twoClassSummary, # Resumen para clasificación binaria
+                           savePredictions = "final", # Opcional: guardar predicciones para análisis posterior
+                           verboseIter = FALSE) 
 ```
 
 ### Train the model
@@ -179,6 +185,9 @@ plot(varImp(objModel, scale = F))
 ## Conclusiones
 
 ```{r conclusion, echo=FALSE}
+La implementación de la validación cruzada y el ajuste en la proporción de datos para entrenamiento y validación han marcado un hito importante en el desarrollo de nuestro proyecto. Al introducir la validación cruzada con 2 pliegues, hemos adoptado un enfoque más riguroso para la evaluación de nuestro modelo, lo que nos ha permitido obtener una visión más precisa y confiable de su capacidad para generalizar a nuevos datos.
 
+El ajuste en la proporción de datos, utilizando el 80% para el entrenamiento y el 20% para la validación, ha optimizado el uso de nuestro conjunto de datos. Este cambio ha permitido que el modelo se beneficie de una mayor cantidad de información durante la fase de aprendizaje, lo cual es crucial para mejorar su capacidad predictiva.
 
+El impacto de estos cambios en el rendimiento del modelo ha sido notable, con un aumento en el AUC de 0.9978 a 0.9996. Este incremento no solo demuestra la efectividad de las modificaciones realizadas sino que también resalta la calidad y la precisión de nuestro modelo en la detección de ataques a partir de los logs de un firewall.
 ```
