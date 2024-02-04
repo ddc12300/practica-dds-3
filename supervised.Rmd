@@ -125,7 +125,7 @@ prop.table(table(events$Label))
 ### Create train and test data sets
 
 ```{r train_test, echo=FALSE}
-splitIndex <- createDataPartition(events[,outcomeName], p = .25, list = FALSE, times = 1)
+splitIndex <- createDataPartition(events[,outcomeName], p = .80, list = FALSE, times = 1)
 
 trainDF <- events[ splitIndex,]
 testDF  <- events[-splitIndex,]
