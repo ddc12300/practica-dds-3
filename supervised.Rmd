@@ -188,5 +188,5 @@ La implementación de la validación cruzada y el ajuste en la proporción de da
 
 El ajuste en la proporción de datos, utilizando el 80% para el entrenamiento y el 20% para la validación, ha optimizado el uso de nuestro conjunto de datos. Este cambio ha permitido que el modelo se beneficie de una mayor cantidad de información durante la fase de aprendizaje, lo cual es crucial para mejorar su capacidad predictiva.
 
-El impacto de estos cambios en el rendimiento del modelo ha sido notable, con un aumento en el AUC de 0.9978 a 0.9996. Este incremento no solo demuestra la efectividad de las modificaciones realizadas sino que también resalta la calidad y la precisión de nuestro modelo en la detección de ataques a partir de los logs de un firewall.
+El impacto de estos cambios en el rendimiento del modelo ha sido notable, con un aumento en el AUC de 0.9978 a 0.9996 y, por lo tanto, también mayor precisión, aumentando su valor de 0.9837312 a 0.9904952. Este incremento no solo demuestra la efectividad de las modificaciones realizadas sino que también resalta la calidad y la precisión de nuestro modelo en la detección de ataques a partir de los logs de un firewall.
 ```
