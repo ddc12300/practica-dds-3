@@ -184,7 +184,6 @@ plot(varImp(objModel, scale = F))
 
 ## Conclusiones
 
-```{r conclusion, echo=FALSE}
 La implementación de la validación cruzada y el ajuste en la proporción de datos para entrenamiento y validación han marcado un hito importante en el desarrollo de nuestro proyecto. Al introducir la validación cruzada con 2 pliegues, hemos adoptado un enfoque más riguroso para la evaluación de nuestro modelo, lo que nos ha permitido obtener una visión más precisa y confiable de su capacidad para generalizar a nuevos datos.
 
 El ajuste en la proporción de datos, utilizando el 80% para el entrenamiento y el 20% para la validación, ha optimizado el uso de nuestro conjunto de datos. Este cambio ha permitido que el modelo se beneficie de una mayor cantidad de información durante la fase de aprendizaje, lo cual es crucial para mejorar su capacidad predictiva.
